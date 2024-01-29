@@ -40,6 +40,7 @@
                     x:Name="nameEntry"
                     Placeholder="Nom du robot"
                     Keyboard="Text"
+                    Text="{Binding NameEntryText}"
                     />
             </Grid>
 
@@ -62,7 +63,8 @@
                     Grid.Column="2"
                     HorizontalOptions="FillAndExpand"
                     Margin="10"
-                    MinimumWidthRequest="400">
+                    MinimumWidthRequest="400"
+                    SelectedItem="{Binding SelectedType}">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Droïde de protocole</x:String>
@@ -92,10 +94,10 @@
 
                 <Slider 
                     x:Name="slider"
+                    Value="{Binding SliderValue}"
                     Grid.Column="2"
                     Minimum="4"
                     Maximum="30"
-                    Value="4"
                     VerticalOptions="Center"
                     HorizontalOptions="FillAndExpand"
                     Margin="10"/>
@@ -120,9 +122,9 @@
                     x:Name="AddBtn"
                     Text="Ajouter un robot"
                     SemanticProperties.Hint="Crée un nouveau robot"
-                    Clicked="createRobot"
                     HorizontalOptions="Center" 
-                    Margin="3"/>
+                    Margin="3"
+                    Command="{Binding AddRobotCommand}"/>
 
                 <Button
                     Grid.Column="2"
@@ -130,9 +132,9 @@
                     x:Name="ChangeBtn"
                     Text="Changer le nom de robot"
                     SemanticProperties.Hint="Change le nom du dernier robot"
-                    Clicked="changeName"
                     HorizontalOptions="Center" 
-                    Margin="3"/>
+                    Margin="3"
+                    Command="{Binding UpdateLastRobotNameCommand}"/>
             </Grid>
 
             <ListView 
