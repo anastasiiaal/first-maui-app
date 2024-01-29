@@ -45,6 +45,8 @@
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Droïde de protocole</x:String>
                             <x:String>Droïde astromécano</x:String>
+                            <x:String>Droïde gentil</x:String>
+                            <x:String>Droïde méchant</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
@@ -89,7 +91,43 @@
 
             <StackLayout x:Name="robotsStackLayout">
             </StackLayout>
-    
+
+
+            <ListView 
+                x:Name="robotsListView"
+                ItemsSource="{Binding Robots}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label 
+                                    Grid.Row="0"
+                                    Text="{Binding Name, StringFormat='Prénom de robot: {0}'}"
+                                    FontSize="{Binding Size}"
+                                    HorizontalTextAlignment="Center"/>
+
+                                <Label 
+                                    Grid.Row="1"
+                                    Text="{Binding Type, StringFormat='Il est de type: {0}'}"
+                                    FontSize="{Binding Size}"
+                                    HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+
+                        <!--<TextCell
+                            Text="{Binding Name, StringFormat='Prénom de robot: {0}'}"
+                            Detail="{Binding Type, StringFormat='Il est de type: {0}'}">
+                        </TextCell>-->
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </VerticalStackLayout>
     </ScrollView>
 

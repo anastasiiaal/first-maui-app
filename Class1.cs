@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FirstMauiApp
 {
-    internal class Robot
+    public class Robot
     {
         public string Name { get; set; }
         public string Type { get; set; }

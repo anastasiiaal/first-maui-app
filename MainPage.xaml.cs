@@ -1,11 +1,16 @@
-﻿namespace FirstMauiApp
+﻿using System.Collections.ObjectModel;
+
+namespace FirstMauiApp
 {
     public partial class MainPage : ContentPage
     {
-
+        public ObservableCollection<Robot> Robots {  get; set; }
         public MainPage()
         {
             InitializeComponent();
+
+            Robots = new ObservableCollection<Robot>();
+            this.BindingContext = this;
         }
 
         private void createRobot(object sender, EventArgs e)
@@ -17,17 +22,7 @@
             if (!string.IsNullOrWhiteSpace(name) && type != null && size > 0)
             {
                 Robot newRobot = new Robot(name, type, size);
-
-                Label robotLabel = new Label
-                {
-                    Text = $"Nouveau robot nom: {newRobot.Name}\nType de Robot: {newRobot.Type}\nTaille de Robot: {newRobot.Size}",
-                    HorizontalOptions = LayoutOptions.Center,
-                    FontAttributes = FontAttributes.Bold,
-                    FontSize = size,
-                    Margin = 10,
-                };
-
-                robotsStackLayout.Children.Add(robotLabel);
+                Robots.Add(newRobot);
 
                 nameEntry.Text = string.Empty;
                 typePicker.SelectedItem = null;
@@ -39,4 +34,5 @@
             }
         }
     }
+
 }
