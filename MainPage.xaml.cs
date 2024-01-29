@@ -4,7 +4,13 @@ namespace FirstMauiApp
 {
     public partial class MainPage : ContentPage
     {
-        public ObservableCollection<Robot> Robots {  get; set; }
+        private ObservableCollection<Robot> robots;
+        public ObservableCollection<Robot> Robots { 
+            get { return robots; }
+            set { robots = value; OnPropertyChanged(); }
+        }
+
+        //public ObservableCollection<Robot> Robots {  get; set; }
         public MainPage()
         {
             InitializeComponent();
@@ -30,14 +36,30 @@ namespace FirstMauiApp
             }
             else
             {
-                DisplayAlert("Information manquante", "Veuillez renseigner le nom, le type et la taille du robot.", "OK");
+                DisplayAlert("Information manquante", "Veuillez renseigner le nom, le type et la taille du robot", "OK");
             }
         }
 
         private void changeName(object sender, EventArgs e)
         {
-            string name = nameEntry.Text;
+            if (Robots.Any())
+            {
+                var lastRobot = Robots.Last();
+                string name = nameEntry.Text;
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    lastRobot.Name = name;
+                    nameEntry.Text = string.Empty;
+                }
+                else
+                {
+                    DisplayAlert("Information manquante", "Veuillez renseigner le nouveau nom du robot 🤖", "OK");
+                }
+            } 
+            else
+            {
+                    DisplayAlert("Information manquante", "Pas de robots dans la collection 🤖", "Okay");
+            }
         }
     }
-
 }
