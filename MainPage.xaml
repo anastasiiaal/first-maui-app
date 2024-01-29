@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstMauiApp.MainPage"
+             Title="Grid Test">
+
+
+    <Grid
+            Margin="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+
+
+        <Label Text="Authorized cell"
+                TextColor="White" 
+                BackgroundColor="BlueViolet" 
+               FontAttributes="Bold"
+                Margin="0 2 2 0"/>
+
+        <BoxView BackgroundColor="Grey" 
+                Grid.Row="0"
+                Grid.Column="1" 
+                Margin="2"/>
+
+        <BoxView Color="Silver"
+                Grid.Column="1" 
+                Margin="0 2 2 2"/>
+
+        <BoxView Color="Teal"
+                Grid.Row="1"
+                Margin="2 2 2 0"/>
+        <Label BackgroundColor="Cyan"
+               FontAttributes="Bold"
+                Margin="2"
+                Grid.Column="1"
+                Grid.Row="1" 
+                Text="Leftover Space"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                TextColor="DarkViolet"
+                     />
+        <Label 
+                Grid.Row="0" 
+                Grid.Column="2" 
+                Grid.RowSpan="2" 
+            FontAttributes="Bold"
+                BackgroundColor="DarkViolet" 
+                Margin="0 0 2 2" 
+                Text="Span two rows"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"    
+                TextColor="White"/>
+
+        <Label
+            BackgroundColor="Yellow"
+            Text="Span two columns"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"  
+            TextColor="DarkViolet"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FontAttributes="Bold"
+            Margin="2 2 0 0"/>
+        
+        <Label
+            BackgroundColor="Red"
+            Text="Fixed 100x100"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"  
+            TextColor="White"
+            Grid.Row="2"
+            Grid.Column="2"
+            FontAttributes="Bold"
+            Margin="2 0 0 2"/>
+
+
+    </Grid>
+
+
+
+</ContentPage>
+
+        <!--<VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>-->
