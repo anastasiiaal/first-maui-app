@@ -6,7 +6,7 @@
     <ScrollView>
 
         <VerticalStackLayout
-            Spacing="25"
+            Spacing="20"
             Padding="30,0">
 
             <Label
@@ -72,6 +72,7 @@
                     Minimum="0"
                     Maximum="100"
                     Value="0"
+                    VerticalOptions="Center"
                     HorizontalOptions="FillAndExpand"/>
             </Grid>
 
@@ -81,17 +82,33 @@
                 HorizontalOptions="Center"/>
 
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Ajouter un robot"
-                SemanticProperties.Hint="Crée un nouveau robot"
-                Clicked="createRobot"
-                HorizontalOptions="Center" />
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <Button
+                    Grid.Column="1"
+                    x:Name="AddBtn"
+                    Text="Ajouter un robot"
+                    SemanticProperties.Hint="Crée un nouveau robot"
+                    Clicked="createRobot"
+                    HorizontalOptions="Center" 
+                    Margin="3"/>
 
-            <StackLayout x:Name="robotsStackLayout">
-            </StackLayout>
-
+                <Button
+                    Grid.Column="2"
+                    Background="LightSlateGray"
+                    x:Name="ChangeBtn"
+                    Text="Changer le nom de robot"
+                    SemanticProperties.Hint="Change le nom du dernier robot"
+                    Clicked="changeName"
+                    HorizontalOptions="Center" 
+                    Margin="3"/>
+            </Grid>
 
             <ListView 
                 x:Name="robotsListView"
@@ -114,7 +131,6 @@
                                 <Label 
                                     Grid.Row="1"
                                     Text="{Binding Type, StringFormat='Il est de type: {0}'}"
-                                    FontSize="{Binding Size}"
                                     HorizontalTextAlignment="Center"/>
                             </Grid>
                         </ViewCell>

@@ -33,6 +33,11 @@ namespace FirstMauiApp
                 DisplayAlert("Information manquante", "Veuillez renseigner le nom, le type et la taille du robot.", "OK");
             }
         }
+
+        private void changeName(object sender, EventArgs e)
+        {
+            string name = nameEntry.Text;
+        }
     }
 
 }
