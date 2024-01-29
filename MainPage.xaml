@@ -3,93 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FirstMauiApp.MainPage">
 
+    <ScrollView>
 
-    <VerticalStackLayout
-        Spacing="25"
-        Padding="30,0">
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0">
 
-        <Label
-            Text="OMRON Formation MAUI"
-            FontSize="32"
-            Margin="10"
-            HorizontalOptions="Center" 
-            FontAttributes="Bold"/>
-
-        <Label
-            Text="Formulaire de création d'un robot" 
-            FontAttributes="Bold"
-            FontSize="18"/>
-
-        <HorizontalStackLayout>
             <Label
-                Text="Nom du robot"
-                VerticalOptions="Center"
-                Margin="10" />
-            <Entry
-                x:Name="nameEntry"
-                Placeholder="Nom du robot"
-                Keyboard="Text"
-                />
-        </HorizontalStackLayout>
+                Text="OMRON Formation MAUI"
+                FontSize="32"
+                Margin="10"
+                HorizontalOptions="Center" 
+                FontAttributes="Bold"/>
 
-        <HorizontalStackLayout>
             <Label
-                Text="Type de robot"
-                VerticalOptions="Center"
-                Margin="10"/>
-            <Picker 
-                x:Name="typePicker"
+                Text="Formulaire de création d'un robot" 
+                FontAttributes="Bold"
+                FontSize="18"/>
+
+            <HorizontalStackLayout>
+                <Label
+                    Text="Nom du robot"
+                    VerticalOptions="Center"
+                    Margin="10" />
+                <Entry
+                    x:Name="nameEntry"
+                    Placeholder="Nom du robot"
+                    Keyboard="Text"
+                    />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label
+                    Text="Type de robot"
+                    VerticalOptions="Center"
+                    Margin="10"/>
+                <Picker 
+                    x:Name="typePicker"
+                    HorizontalOptions="FillAndExpand">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Droïde de protocole</x:String>
+                            <x:String>Droïde astromécano</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+
+            <Grid 
                 HorizontalOptions="FillAndExpand">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Droïde de protocole</x:String>
-                        <x:String>Droïde astromécano</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-        </HorizontalStackLayout>
-
-        <Grid 
-            HorizontalOptions="FillAndExpand">
             
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Label 
-                Grid.Column="0"
-                Text="Taille du robot"
-                VerticalOptions="Center"
-                Margin="10"/>
+                <Label 
+                    Grid.Column="0"
+                    Text="Taille du robot"
+                    VerticalOptions="Center"
+                    Margin="10"/>
 
-            <Slider 
-                x:Name="slider"
-                Grid.Column="1"
-                Minimum="0"
-                Maximum="100"
-                Value="0"
-                HorizontalOptions="FillAndExpand"/>
-        </Grid>
+                <Slider 
+                    x:Name="slider"
+                    Grid.Column="1"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="0"
+                    HorizontalOptions="FillAndExpand"/>
+            </Grid>
 
-        <Label
-            BindingContext="{x:Reference slider}"
-            Text="{Binding Value, StringFormat='Le robot est de taille {0:F0}'}"
-            HorizontalOptions="Center"/>
-
-
-        <Button
-            x:Name="CounterBtn"
-            Text="Ajouter un robot"
-            SemanticProperties.Hint="Crée un nouveau robot"
-            Clicked="createRobot"
-            HorizontalOptions="Center" />
+            <Label
+                BindingContext="{x:Reference slider}"
+                Text="{Binding Value, StringFormat='Le robot est de taille {0:F0}'}"
+                HorizontalOptions="Center"/>
 
 
-        <StackLayout x:Name="robotsStackLayout">
-        </StackLayout>
+            <Button
+                x:Name="CounterBtn"
+                Text="Ajouter un robot"
+                SemanticProperties.Hint="Crée un nouveau robot"
+                Clicked="createRobot"
+                HorizontalOptions="Center" />
+
+
+            <StackLayout x:Name="robotsStackLayout">
+            </StackLayout>
     
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 
 
 </ContentPage>

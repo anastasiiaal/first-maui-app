@@ -20,16 +20,15 @@
 
                 Label robotLabel = new Label
                 {
-                    Text = $"Nouveau robot nom: {newRobot.Name} \nType de Robot: {newRobot.Type} \nTaille de Robot: {newRobot.Size}",
+                    Text = $"Nouveau robot nom: {newRobot.Name}\nType de Robot: {newRobot.Type}\nTaille de Robot: {newRobot.Size}",
                     HorizontalOptions = LayoutOptions.Center,
                     FontAttributes = FontAttributes.Bold,
-                    FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)), // Set a predefined size for the font
+                    FontSize = size,
                     Margin = 10,
                 };
 
                 robotsStackLayout.Children.Add(robotLabel);
 
-                // Optionally clear the inputs
                 nameEntry.Text = string.Empty;
                 typePicker.SelectedItem = null;
                 slider.Value = 0;
