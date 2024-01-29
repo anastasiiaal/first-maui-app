@@ -10,7 +10,6 @@ namespace FirstMauiApp
             set { robots = value; OnPropertyChanged(); }
         }
 
-        //public ObservableCollection<Robot> Robots {  get; set; }
         public MainPage()
         {
             InitializeComponent();
@@ -58,7 +57,7 @@ namespace FirstMauiApp
             } 
             else
             {
-                    DisplayAlert("Information manquante", "Pas de robots dans la collection 🤖", "Okay");
+                    DisplayAlert("Information manquante", "Pas de robots dans la collection 🗿", "Okay");
             }
         }
     }

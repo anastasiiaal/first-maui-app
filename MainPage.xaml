@@ -21,26 +21,47 @@
                 FontAttributes="Bold"
                 FontSize="18"/>
 
-            <HorizontalStackLayout>
+            <Grid 
+                HorizontalOptions="FillAndExpand">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
                 <Label
+                    Grid.Column="0"
                     Text="Nom du robot"
-                    VerticalOptions="Center"
-                    Margin="10" />
+                    VerticalOptions="Center"/>
                 <Entry
+                    Grid.Column="2"
+                    Margin="10"
                     x:Name="nameEntry"
                     Placeholder="Nom du robot"
                     Keyboard="Text"
                     />
-            </HorizontalStackLayout>
+            </Grid>
 
-            <HorizontalStackLayout>
+
+            <Grid 
+                HorizontalOptions="FillAndExpand">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
                 <Label
                     Text="Type de robot"
-                    VerticalOptions="Center"
-                    Margin="10"/>
+                    Grid.Column="0"
+                    VerticalOptions="Center"/>
                 <Picker 
                     x:Name="typePicker"
-                    HorizontalOptions="FillAndExpand">
+                    Grid.Column="2"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Droïde de protocole</x:String>
@@ -50,30 +71,32 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-            </HorizontalStackLayout>
+            </Grid>
+
 
             <Grid 
                 HorizontalOptions="FillAndExpand">
             
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label 
                     Grid.Column="0"
                     Text="Taille du robot"
-                    VerticalOptions="Center"
-                    Margin="10"/>
+                    VerticalOptions="Center"/>
 
                 <Slider 
                     x:Name="slider"
-                    Grid.Column="1"
+                    Grid.Column="2"
                     Minimum="0"
                     Maximum="100"
                     Value="0"
                     VerticalOptions="Center"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10"/>
             </Grid>
 
             <Label
@@ -121,7 +144,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                
+
                                 <Label 
                                     Grid.Row="0"
                                     Text="{Binding Name, StringFormat='Prénom de robot: {0}'}"
@@ -134,11 +157,6 @@
                                     HorizontalTextAlignment="Center"/>
                             </Grid>
                         </ViewCell>
-
-                        <!--<TextCell
-                            Text="{Binding Name, StringFormat='Prénom de robot: {0}'}"
-                            Detail="{Binding Type, StringFormat='Il est de type: {0}'}">
-                        </TextCell>-->
 
                     </DataTemplate>
                 </ListView.ItemTemplate>
