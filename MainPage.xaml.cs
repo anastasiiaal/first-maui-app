@@ -57,7 +57,7 @@ namespace FirstMauiApp
             } 
             else
             {
-                    DisplayAlert("Information manquante", "Pas de robots dans la collection 🗿", "Okay");
+                DisplayAlert("Information manquante", "Pas de robots dans la collection 🗿", "Okay");
             }
         }
     }

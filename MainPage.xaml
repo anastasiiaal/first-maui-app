@@ -50,7 +50,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label
@@ -61,13 +61,15 @@
                     x:Name="typePicker"
                     Grid.Column="2"
                     HorizontalOptions="FillAndExpand"
-                    Margin="10">
+                    Margin="10"
+                    MinimumWidthRequest="400">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Droïde de protocole</x:String>
                             <x:String>Droïde astromécano</x:String>
                             <x:String>Droïde gentil</x:String>
                             <x:String>Droïde méchant</x:String>
+                            <x:String>Droïde bête</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
@@ -91,9 +93,9 @@
                 <Slider 
                     x:Name="slider"
                     Grid.Column="2"
-                    Minimum="0"
-                    Maximum="100"
-                    Value="0"
+                    Minimum="4"
+                    Maximum="30"
+                    Value="4"
                     VerticalOptions="Center"
                     HorizontalOptions="FillAndExpand"
                     Margin="10"/>
