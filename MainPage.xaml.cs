@@ -8,8 +8,8 @@ namespace FirstMauiApp
         {
             InitializeComponent();
             var viewModel = new RobotViewModel();
-            BindingContext = viewModel;
 
+            BindingContext = viewModel;
             viewModel.AlertRequested += OnViewModelAlertRequested;
         }
 

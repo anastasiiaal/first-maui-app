@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\User\Documents\MyDigitalSchool\school files\4. application-desktop_LARGE-Gaultier\FirstMauiApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-01-30T07:53:35.425</Modified>
+      <Modified>2024-01-30T08:46:13.286</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\User\Documents\MyDigitalSchool\school files\4. application-desktop_LARGE-Gaultier\FirstMauiApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-01-30T07:53:35.262</Modified>
+      <Modified>2024-01-30T08:46:13.122</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\MyDigitalSchool\school files\4. application-desktop_LARGE-Gaultier\FirstMauiApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\FirstMauiApp.runtimeconfig.json">
       <PackagePath>FirstMauiApp.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\MyDigitalSchool\school files\4. application-desktop_LARGE-Gaultier\FirstMauiApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\FirstMauiApp.dll">
       <PackagePath>FirstMauiApp.dll</PackagePath>
-      <Modified>2024-01-30T07:53:34.578</Modified>
+      <Modified>2024-01-30T08:46:12.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\MyDigitalSchool\school files\4. application-desktop_LARGE-Gaultier\FirstMauiApp\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>FirstMauiApp.exe</PackagePath>
-      <Modified>2024-01-30T07:53:34.585</Modified>
+      <Modified>2024-01-30T08:46:12.422</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\MyDigitalSchool\school files\4. application-desktop_LARGE-Gaultier\FirstMauiApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\FirstMauiApp.deps.json">
       <PackagePath>FirstMauiApp.deps.json</PackagePath>

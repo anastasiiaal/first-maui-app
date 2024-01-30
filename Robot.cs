@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FirstMauiApp
 {
-    public class Robot
+    public class Robot : INotifyPropertyChanged
     {
         private string name;
         public string Name
@@ -34,10 +34,10 @@ namespace FirstMauiApp
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // reference to PropertyChangedEventArgs class
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

@@ -62,28 +62,36 @@ namespace FirstMauiApp
         {
             if (!string.IsNullOrWhiteSpace(NameEntryText) && !string.IsNullOrWhiteSpace(SelectedType) && SliderValue > 0)
             {
-                Robot newRobot = new Robot(NameEntryText, SelectedType, (int)Math.Round(SliderValue));
+                // if all data is entered, pass to new robot & add to robots collection
+                Robot newRobot = new Robot(NameEntryText, SelectedType, (int)Math.Round(SliderValue)*2);
                 Robots.Add(newRobot);
 
+                // empty all fields
                 NameEntryText = string.Empty;
                 SelectedType = null;
                 SliderValue = 0;
             }
             else
             {
+                // else send alert
                 OnAlertRequested("Information manquante", "Veuillez renseigner le nom, le type et la taille du robot", "OK");
             }
         }
 
+        // function to modify existing robot's name
         private void ChangeName()
         {
             if (Robots.Any())
             {
+                // if there are robots in collection, take last one
                 var lastRobot = Robots.Last();
                 if (!string.IsNullOrWhiteSpace(NameEntryText))
                 {
+                    // if new name is in input, register it and clear all inputs
                     lastRobot.Name = NameEntryText;
                     NameEntryText = string.Empty;
+                    SelectedType = null;
+                    SliderValue = 0;
                 }
                 else
                 {
@@ -95,7 +103,8 @@ namespace FirstMauiApp
                 OnAlertRequested("Information manquante", "Pas de robots dans la collection 🗿", "Okay");
             }
         }
-        /* pour provoquer une alerte */
+        
+        // function to trigger an alert
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -109,17 +118,5 @@ namespace FirstMauiApp
 
     }
 
-    public class AlertMessageEventArgs : EventArgs
-    {
-        public string Title { get; }
-        public string Message { get; }
-        public string Cancel { get; }
 
-        public AlertMessageEventArgs(string title, string message, string cancel)
-        {
-            Title = title;
-            Message = message;
-            Cancel = cancel;
-        }
-    }
 }
