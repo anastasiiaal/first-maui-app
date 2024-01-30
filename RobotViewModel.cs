@@ -12,6 +12,7 @@ namespace FirstMauiApp
 {
     public class RobotViewModel : INotifyPropertyChanged
     {
+        public event EventHandler<AlertMessageEventArgs> AlertRequested;
         public ObservableCollection<Robot> Robots { get; }
 
         public ICommand AddRobotCommand { get; }
@@ -68,10 +69,10 @@ namespace FirstMauiApp
                 SelectedType = null;
                 SliderValue = 0;
             }
-            //else
-            //{
-            //    DisplayAlert("Information manquante", "Veuillez renseigner le nom, le type et la taille du robot", "OK");
-            //}
+            else
+            {
+                OnAlertRequested("Information manquante", "Veuillez renseigner le nom, le type et la taille du robot", "OK");
+            }
         }
 
         private void ChangeName()
@@ -84,21 +85,41 @@ namespace FirstMauiApp
                     lastRobot.Name = NameEntryText;
                     NameEntryText = string.Empty;
                 }
-                //else
-                //{
-                //    DisplayAlert("Information manquante", "Veuillez renseigner le nouveau nom du robot 🤖", "OK");
-                //}
+                else
+                {
+                    OnAlertRequested("Information manquante", "Veuillez renseigner le nouveau nom du robot 🤖", "OK");
+                }
             }
-            //else
-            //{
-            //    DisplayAlert("Information manquante", "Pas de robots dans la collection 🗿", "Okay");
-            //}
+            else
+            {
+                OnAlertRequested("Information manquante", "Pas de robots dans la collection 🗿", "Okay");
+            }
         }
-
+        /* pour provoquer une alerte */
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected virtual void OnAlertRequested(string title, string message, string cancel)
+        {
+            AlertRequested?.Invoke(this, new AlertMessageEventArgs(title, message, cancel));
+        }
+
+    }
+
+    public class AlertMessageEventArgs : EventArgs
+    {
+        public string Title { get; }
+        public string Message { get; }
+        public string Cancel { get; }
+
+        public AlertMessageEventArgs(string title, string message, string cancel)
+        {
+            Title = title;
+            Message = message;
+            Cancel = cancel;
         }
     }
 }
